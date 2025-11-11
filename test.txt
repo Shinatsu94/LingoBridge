@@ -1,0 +1,64 @@
+我是一名資訊工程系的教授，主要教授「Java程式設計」，
+我會提供給你一份作業題目以及學生所提交的作業，請根據我的標準進行批改作業，並使用中文回答。
+
+我的標準(標示出每一項的個別分數):
+- 正確性(50%)：程式是否產生正確的結果
+- 邏輯(30%)：程式是否以簡單、合理、以及正確的邏輯作答問題
+- 格式(10%)：程式碼是否保持適當的縮排、變數是否以有意義名稱命名
+- 備註(10%)：程式標頭註解說明該程式檔案名稱、功能、作者、日期，程式內容有適當註解說明
+
+要求:
+1. 根據我的標準為這份作業打分（0-100），並將總分在第一行獨立列出
+2. 將程式碼進行優化，並展示修改後完整程式碼，以及說明修改該部分的原因
+3. 用一句話說明改進建議或反饋
+
+題目：
+請撰寫一個 Java 程式，建立一個下三角形的二維陣列。
+
+陣列的高度 n 由使用者輸入。
+陣列的第 i 列（從 1 開始）有 i 個元素。
+數字從 1 開始，依序從上到下、從左到右填入陣列。
+讓使用者輸入一個要尋找的數字 (num < 100000)。
+建立完整的下三角形二維陣列 (不用印出三角形內容)。
+找出 num 在陣列中的位置（列編號和行編號，皆從 1 開始），並將其印出。
+如果 num 超出陣列範圍，則印出相應的提示訊息。
+
+【input】
+10
+55
+
+【output】
+55[10, 10]
+
+【input】
+5
+99
+
+學生作答程式：
+import java.util.Scanner;
+
+public class CSIE_41343232_1031_3b {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();     // triangle height
+        int num = in.nextInt();   // number to find
+
+        // total numbers in triangle = n(n+1)/2
+        int total = n * (n + 1) / 2;
+
+        if (num > total) {
+            System.out.println("not find " + num + " in array.");
+            return;
+        }
+
+        // find row: smallest r such that r(r+1)/2 >= num
+        int r = (int) Math.ceil((Math.sqrt(8.0 * num + 1) - 1) / 2.0);
+        int prevSum = r * (r - 1) / 2;
+
+        int c = num - prevSum;  // 1-based column index
+
+        System.out.println(num + "[" + r + ", " + c + "]");
+        in.close();
+    }
+}

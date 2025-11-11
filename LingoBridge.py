@@ -37,8 +37,8 @@ import os           # 路徑使用
 # 各家 API
 from openai import OpenAI
 import google.generativeai as genai
-from mistralai import Mistral as misai
-import anthropic
+#from mistralai import Mistral as misai
+#import anthropic
 
 #--- VARIABLE------------------------------------------------------------+
 
@@ -57,7 +57,7 @@ LOGS_DIR = os.path.join(CURRENT_DIR, 'logs')
 LOG_PATH = os.path.join(LOGS_DIR, 'lists.log')
 
 # 有效使用者清單 (用於建立 log檔案，預設為 default)
-VALID_USERS = ["aino"]
+VALID_USERS = ["aino", "java"]
 
 #--- INITIAL-------------------------------------------------------------+
 
