@@ -15,3 +15,6 @@ pip install anthropic
 - 追加使用者功能
 - 修改回傳狀態值(status)，以及main()回傳格式。
 - 未來可將API key改用環境變數儲存(目前使用items.json 明碼儲存)
+
+## v2.2
+- 追加批量輸出文本
